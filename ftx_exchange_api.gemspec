@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['khiav reoy']
   spec.email         = ['mrtmrt15xn@yahoo.com.tw']
 
-  spec.summary       = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
-  spec.description   = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
+  spec.summary       = 'FTX Exchange API Ruby SDK'
+  spec.description   = 'FTX Exchange API Ruby SDK'
   spec.homepage      = 'https://github.com/khiav223577/ftx_exchange_api'
   spec.license       = 'MIT'
 
@@ -36,10 +36,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '>= 1.17', '< 3.x'
   spec.add_development_dependency 'rake', '~> 12.0'
-  spec.add_development_dependency 'sqlite3', '~> 1.3'
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'minitest-color', '~> 0.0.2'
-  spec.add_development_dependency 'backports', '~> 3.15.0'
 
-  spec.add_dependency 'activerecord', '>= 3'
+  spec.add_dependency 'httparty', '>= 0.18.1'
 end
