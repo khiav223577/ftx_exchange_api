@@ -27,5 +27,27 @@ class PublicApiTest < Minitest::Test
     }
     assert_equal expected_data, yfi_market.slice(*expected_data.keys)
   end
+
+  def test_single_market
+    response = @api.stub(:print_log, nil) do
+      @api.markets('YFI/USDT')
+    end
+
+    assert_equal %w[success result], response.keys
+    assert_instance_of(Hash, response['result'])
+
+    expected_data = {
+      'name'                  => 'YFI/USDT',
+      'enabled'               => true,
+      'postOnly'              => false,
+      'type'                  => 'spot',
+      'baseCurrency'          => 'YFI',
+      'quoteCurrency'         => 'USDT',
+      'underlying'            => nil,
+      'restricted'            => false,
+      'highLeverageFeeExempt' => true,
+    }
+    assert_equal expected_data, response['result'].slice(*expected_data.keys)
+  end
 end
 
