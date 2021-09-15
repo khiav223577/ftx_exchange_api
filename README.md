@@ -8,7 +8,6 @@
 
 ## Supports
 - Ruby 2.2 ~ 2.7
-- Rails 3.2, 4.2, 5.0, 5.1, 5.2, 6.0
 
 ## Installation
 
@@ -24,8 +23,89 @@ Or install it yourself as:
 
     $ gem install ftx_exchange_api
 
+## Configuration
+
+### Set timeout time
+
+```rb
+# default config
+FtxExchangeApi.default_config.timeout = 3 # seconds
+
+# custom config
+FtxExchangeApi::PublicApi.new(config: { timeout: 12 })
+FtxExchangeApi::PrivateApi.new(access_key, secret_key, config: { timeout: 12 })
+```
+
+### Logging
+
+```rb
+require 'logger'
+
+# default config
+FtxExchangeApi.default_config.logger = Logger.new(STDOUT) # print log to stdand output
+FtxExchangeApi.default_config.logger = Logger.new('log/api.log')
+
+# custom config
+FtxExchangeApi::PublicApi.new(config: { logger: Logger.new(STDOUT) })
+FtxExchangeApi::PrivateApi.new(access_key, secret_key, config: { logger: Logger.new(STDOUT) })
+```
+
 ## Usage
 
+### Public Api Examples
+
+```rb
+@api = FtxExchangeApi::PublicApi.new
+```
+
+#### [GET /markets](https://docs.ftx.com/?ruby#get-markets)
+
+> Get markets
+
+<details>
+  <summary>Show code</summary>
+
+```rb
+@api.markets
+```
+</details>
+
+#### [GET /markets/{market_name}](https://docs.ftx.com/?ruby#get-markets)
+
+> Get single market
+
+<details>
+  <summary>Show code</summary>
+
+```rb
+@api.markets(market_name)
+```
+</details>
+
+#### [GET /markets/{market_name}/orderbook?depth={depth}](https://docs.ftx.com/?ruby#get-markets)
+
+> Get orderbook
+
+<details>
+  <summary>Show code</summary>
+
+```rb
+# use default parameters
+@api.orderbook(market_name)
+
+# provide all possible parameters
+@api.orderbook(market_name, depth: 3)
+```
+</details>
+
+### Private Api Examples
+
+```rb
+access_key = 'YOUR_ACCESS_KEY'
+secret_key = 'YOUR_SECRET_KEY'
+
+@api = FtxExchangeApi::PrivateApi.new(access_key, secret_key)
+```
 
 ## Development
 
