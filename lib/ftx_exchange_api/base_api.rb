@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'httparty'
-require 'ftx_exchange_api/helper'
 
 module FtxExchangeApi
   class BaseApi
