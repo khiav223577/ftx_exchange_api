@@ -1,4 +1,4 @@
-# ftx_exchange_api
+# FtxExchangeApi
 
 [![Gem Version](https://img.shields.io/gem/v/ftx_exchange_api.svg?style=flat)](http://rubygems.org/gems/ftx_exchange_api)
 [![Build Status](https://github.com/khiav223577/ftx_exchange_api/workflows/Ruby/badge.svg)](https://github.com/khiav223577/ftx_exchange_api/actions)
