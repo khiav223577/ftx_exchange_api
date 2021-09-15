@@ -26,7 +26,7 @@ class PublicApiTest < Minitest::Test
       'restricted'            => false,
       'highLeverageFeeExempt' => true,
     }
-    assert_equal expected_data, yfi_market.slice(*expected_data.keys)
+    assert_hash_to_include expected_data, yfi_market
   end
 
   def test_single_market
@@ -49,7 +49,7 @@ class PublicApiTest < Minitest::Test
       'restricted'            => false,
       'highLeverageFeeExempt' => true,
     }
-    assert_equal expected_data, response['result'].slice(*expected_data.keys)
+    assert_hash_to_include expected_data, response['result']
   end
 
   def test_orderbook

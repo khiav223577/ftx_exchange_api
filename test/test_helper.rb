@@ -16,4 +16,9 @@ module TestHelper
   end
 end
 
+def assert_hash_to_include(expected_data, data)
+  assert_instance_of Hash, data
+  assert_equal expected_data, expected_data.keys.map{|k| [k, data[k]] }.to_h
+end
+
 FtxExchangeApi.default_config.timeout = 15
