@@ -10,11 +10,10 @@ class PublicApiTest < Minitest::Test
       @api.markets
     end
 
-    assert_equal %w[success result], response.keys
-    assert_equal true, response['success']
+    assert_success_response(response)
     assert_instance_of Array, response['result']
 
-    yfi_market = response['result'].select{|s| s['name'] == 'YFI/USDT' }[0]
+    yfi_market = response['result'].find{|s| s['name'] == 'YFI/USDT' }
     expected_data = {
       'name'                  => 'YFI/USDT',
       'enabled'               => true,
@@ -34,8 +33,7 @@ class PublicApiTest < Minitest::Test
       @api.markets('YFI/USDT')
     end
 
-    assert_equal %w[success result], response.keys
-    assert_equal true, response['success']
+    assert_success_response(response)
     assert_instance_of Hash, response['result']
 
     expected_data = {
@@ -57,9 +55,8 @@ class PublicApiTest < Minitest::Test
       @api.orderbook('YFI/USDT', depth: 3)
     end
 
-    assert_equal %w[success result], response.keys
-    assert_equal true, response['success']
-    assert_instance_of(Hash, response['result'])
+    assert_success_response(response)
+    assert_instance_of Hash, response['result']
 
     assert_equal %w[bids asks], response['result'].keys
     assert_instance_of Array, response['result']['bids']
