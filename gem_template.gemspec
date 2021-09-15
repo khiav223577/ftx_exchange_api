@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'gem_template/version'
+require 'ftx_exchange_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'gem_template'
-  spec.version       = GemTemplate::VERSION # gem_template
+  spec.name          = 'ftx_exchange_api'
+  spec.version       = FtxExchangeApi::VERSION
   spec.authors       = ['khiav reoy']
   spec.email         = ['mrtmrt15xn@yahoo.com.tw']
 
   spec.summary       = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
   spec.description   = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
-  spec.homepage      = 'https://github.com/khiav223577/gem_template'
+  spec.homepage      = 'https://github.com/khiav223577/ftx_exchange_api'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -27,11 +27,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}){|f| File.basename(f) }
   spec.require_paths = ['lib']
   spec.metadata      = {
-    'homepage_uri'      => 'https://github.com/khiav223577/gem_template',
-    'changelog_uri'     => 'https://github.com/khiav223577/gem_template/blob/master/CHANGELOG.md',
-    'source_code_uri'   => 'https://github.com/khiav223577/gem_template',
-    'documentation_uri' => 'https://www.rubydoc.info/gems/gem_template',
-    'bug_tracker_uri'   => 'https://github.com/khiav223577/gem_template/issues',
+    'homepage_uri'      => 'https://github.com/khiav223577/ftx_exchange_api',
+    'changelog_uri'     => 'https://github.com/khiav223577/ftx_exchange_api/blob/master/CHANGELOG.md',
+    'source_code_uri'   => 'https://github.com/khiav223577/ftx_exchange_api',
+    'documentation_uri' => 'https://www.rubydoc.info/gems/ftx_exchange_api',
+    'bug_tracker_uri'   => 'https://github.com/khiav223577/ftx_exchange_api/issues',
   }
 
   spec.add_development_dependency 'bundler', '>= 1.17', '< 3.x'

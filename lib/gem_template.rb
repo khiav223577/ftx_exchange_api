@@ -1,1 +1,1 @@
-require 'gem_template/version'
+require 'ftx_exchange_api/version'
