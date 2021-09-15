@@ -11,7 +11,8 @@ class PublicApiTest < Minitest::Test
     end
 
     assert_equal %w[success result], response.keys
-    assert_instance_of(Array, response['result'])
+    assert_equal true, response['success']
+    assert_instance_of Array, response['result']
 
     yfi_market = response['result'].select{|s| s['name'] == 'YFI/USDT' }[0]
     expected_data = {
@@ -34,7 +35,8 @@ class PublicApiTest < Minitest::Test
     end
 
     assert_equal %w[success result], response.keys
-    assert_instance_of(Hash, response['result'])
+    assert_equal true, response['success']
+    assert_instance_of Hash, response['result']
 
     expected_data = {
       'name'                  => 'YFI/USDT',
@@ -49,5 +51,20 @@ class PublicApiTest < Minitest::Test
     }
     assert_equal expected_data, response['result'].slice(*expected_data.keys)
   end
-end
 
+  def test_orderbook
+    response = @api.stub(:print_log, nil) do
+      @api.orderbook('YFI/USDT', depth: 3)
+    end
+
+    assert_equal %w[success result], response.keys
+    assert_equal true, response['success']
+    assert_instance_of(Hash, response['result'])
+
+    assert_equal %w[bids asks], response['result'].keys
+    assert_instance_of Array, response['result']['bids']
+    assert_instance_of Array, response['result']['asks']
+    assert_equal 3, response['result']['bids'].size
+    assert_equal 3, response['result']['asks'].size
+  end
+end
