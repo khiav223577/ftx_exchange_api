@@ -64,4 +64,19 @@ class PublicApiTest < Minitest::Test
     assert_equal 3, response['result']['bids'].size
     assert_equal 3, response['result']['asks'].size
   end
+
+  def test_orderbook_with_default_depth
+    response = @api.stub(:print_log, nil) do
+      @api.orderbook('YFI/USDT')
+    end
+
+    assert_success_response(response)
+    assert_instance_of Hash, response['result']
+
+    assert_equal %w[bids asks], response['result'].keys
+    assert_instance_of Array, response['result']['bids']
+    assert_instance_of Array, response['result']['asks']
+    assert_equal 20, response['result']['bids'].size
+    assert_equal 20, response['result']['asks'].size
+  end
 end
