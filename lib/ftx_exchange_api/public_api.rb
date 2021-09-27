@@ -21,7 +21,7 @@ module FtxExchangeApi
     protected
 
     def send_request(method, path, query)
-      super(method, path, {}, query)
+      super(method, path, {}, query.compact)
     end
   end
 end
