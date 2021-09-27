@@ -21,7 +21,7 @@ module FtxExchangeApi
     protected
 
     def send_request(method, path, query)
-      super(method, path, {}, query.compact)
+      super(method, path, {}, query.reject{|_k, v| v == nil })
     end
   end
 end
