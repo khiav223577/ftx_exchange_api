@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'ftx_exchange_api'
   spec.version       = FtxExchangeApi::VERSION
   spec.authors       = ['khiav reoy']
-  spec.email         = ['mrtmrt15xn@yahoo.com.tw']
+  spec.email         = ['khiav223577@gmail.com']
 
   spec.summary       = 'FTX Exchange API Ruby SDK'
   spec.description   = 'FTX Exchange API Ruby SDK'
